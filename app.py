@@ -7,7 +7,7 @@ st.set_page_config(page_title="GeoMind-AI", layout="wide")
 st.title("🛰️ GeoMind-AI: Satellite-based Mineral Detection")
 st.markdown("Upload a `.hgt` SRTM file to view elevation and detect mock mineral zones.")
 
-uploaded_file = st.file_uploader("📂 Upload SRTM .hgt file", type=["hgt"])
+uploaded_file = st.file_uploader("Choose a .hgt DEM file", type="hgt")
 
 if uploaded_file is not None:
     with open("temp_dem.hgt", "wb") as f:
@@ -37,8 +37,6 @@ if uploaded_file is not None:
 
     except Exception as e:
         st.error(f"Error reading DEM: {e}")
+
 else:
-    st.info("📎 Please upload a `.hgt` DEM file to get started.")
-
-
----
+    st.info("📎 Please upload a `.hgt` DEM file to begin.")
